@@ -1,0 +1,29 @@
+
+
+<div class="container col-md-12">
+    <ng-container *ngIf="error">
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Sorry!</strong> invalide credentials
+          </div>
+       </ng-container>
+    <h2>Login Here!</h2>
+    <div class="card "style="width: 25rem;">
+        <div class="d-flex justify-content-around py-3 ">
+            <form (ngSubmit)="loginSubmit()">
+                <div class="mb-3">
+                    <label for="userName" class="form-label">userName</label>
+                    <input [(ngModel)]="loginData.userName" name="userName" type="text" class="form-control" id="userName">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">password</label>
+                    <input [(ngModel)]="loginData.password" name="password" type="text" class="form-control" id="password">
+                </div>
+    
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+           
+        </div>
+    
+    </div>
+</div>

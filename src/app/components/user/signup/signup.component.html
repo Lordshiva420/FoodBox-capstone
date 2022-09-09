@@ -1,0 +1,49 @@
+
+<div class="container-fluid ">
+        
+          <ng-container *ngIf="error">
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Sorry!</strong> user already exist, please login... or Register with new userName!
+              </div>
+
+           </ng-container>
+   
+    <div class="card ">
+        <h2 style="text-align: center;">Register Here!</h2>
+        <div class="d-flex justify-content-around py-3 ">
+           
+          
+            <form (ngSubmit)="formSubmit()" >
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">FirstName</label>
+                    <input [(ngModel)]="user.firstName" name="firstName"type="text" class="form-control" id="firstName"  >
+                  
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">LastName</label>
+                    <input [(ngModel)]="user.lastName" name="lastName"type="text" class="form-control" id="lastName"   >
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input [(ngModel)]="user.email"name="Email" type="text" class="form-control" id="email" >
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">phone</label>
+                    <input [(ngModel)]="user.phone" name="phone"type="text" class="form-control" id="phone" >
+                </div>
+                <div class="mb-3">
+                    <label for="userName" class="form-label">userName</label>
+                    <input [(ngModel)]="user.userName" name="userName"type="text" class="form-control" id="userName" >
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">password</label>
+                    <input [(ngModel)]="user.password"name="password" type="text" class="form-control" id="password" >
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Signup</button>
+            </form>
+        </div>
+
+    </div>
+</div>

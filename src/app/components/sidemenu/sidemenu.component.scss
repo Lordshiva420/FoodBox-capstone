@@ -1,0 +1,17 @@
+.list-group-item{
+    background-color: rgb(245,242,236);
+    color: orange;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;  
+}
+.list-group {
+    text-align: justify;
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;  
+}
+.list-group-item:hover{
+    background-color: orange;
+    color: white;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;  
+}

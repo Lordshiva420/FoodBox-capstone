@@ -1,0 +1,27 @@
+.container{
+    margin-top: 60px;
+    padding: 30px;
+    background-color:rgb(245, 242, 236);
+    text-align: justify;
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;  
+}
+.img-thumbnail{
+    height: 100px;
+   width: max-content;
+}
+th{
+    text-align: justify;
+    font-size: large;
+    font-weight: 800;
+}
+.title{
+    font-size: x-large;
+    text-align: start;
+}
+td{
+    text-align: justify;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: medium;
+}

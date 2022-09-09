@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-md bg-warning navbar-ligh fixed-top shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: white;" href="#">FoodBox</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/userDashboard" style="color: white;">HOME</a>
+        </li>
+      <ng-container *ngIf="loginService.isAdminLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/manageProducts"
+            style="color:white;">ManageProducts</a>
+        </li>
+      </ng-container>   
+      </ul>
+      
+      <div class="mx-auto">
+        <app-search></app-search>
+      </div>
+
+        <div class="cart">
+      <app-cart-status></app-cart-status>
+        </div>
+      
+      <div class="signup">
+        <a *ngIf="!loginService.IsUserloggedIn()" class="nav-link" routerLinkActive="active" routerLink="/signup"
+          style="color: white;">Signup</a>
+        <a *ngIf="loginService.IsUserloggedIn()" class="nav-link" style="color: white;">{{loginService.getUser().username}}</a>
+      </div>
+      <div class="login px-2">
+        <a *ngIf="!loginService.IsUserloggedIn()" class="nav-link" routerLinkActive="active" routerLink="/login"
+          style="color: white;">Login</a>
+        <a *ngIf="loginService.IsUserloggedIn()" class="nav-link" style="color: white;" (click)="logout()">logout</a>
+      </div>
+
+    </div>
+  </div>
+</nav>

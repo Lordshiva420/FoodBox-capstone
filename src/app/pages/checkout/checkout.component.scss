@@ -1,0 +1,33 @@
+.container{
+    margin-top: 80px;
+    padding: 30px;
+    background-color:rgb(245, 242, 236);
+    font-family: 'Roboto', sans-serif;  
+}
+
+.total{line-height: 2px;
+    text-align: justify;
+    font-size: larger;
+    padding: 11px;
+    text-transform: capitalize;}
+
+
+    p{
+   
+    padding: 5px;
+    }
+
+    td{
+    text-align: center;
+    font-size: large;
+    padding: 15px;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+    
+    .card-body{
+        background-color: rgba(255,193,7,0.8);
+    }
+    a{
+        text-decoration: none;
+    }

@@ -1,0 +1,66 @@
+
+<div class="container-fluid">
+  <div class="d-flex justify-content-between flex-wrap ">
+
+    <!-- side menu -->
+   <div class="sidemenu flex-fill">
+     <app-sidemenu></app-sidemenu>
+    </div>
+
+      <!-- main content   -->
+      <div class="col-md-10 main flex-fill">
+  
+         <!-- corosal -->
+         <div class="corosal col-md-12">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/img/cor1.jfif" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/img/cor2.jfif" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="https://source.unsplash.com/700x200/?food-drink" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        </div>
+       
+        <!-- cards -->
+        <div class="row row-cols-md-4 cards">
+        <ng-container *ngFor="let product of Productlist">
+          <ng-container *ngIf="product.active">
+          <div class="card  products" >
+            <a  routerLink="/product/{{product.pId}}" >
+            <img  src="assets\img\{{product.imageUrl}}" class="card-img-top" alt="...">
+          </a>
+            <div class="card-body">
+              <a  routerLink="/product/{{product.pId}}" >
+              <h5 style="color: orange;" class="card-title">{{product. productName}}</h5>
+             </a>
+              <p class="card-text" style="white-space:nowrap;overflow: hidden;text-overflow: ellipsis;">{{product. productDescription}}</p>
+              <p class="card-text"><strong> Price:</strong>{{product.unitPrice|currency :('INR')}}</p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-warning float-right" (click)="addTocart(product)">Add cart</button>
+            </div>
+          </div>
+        </ng-container>
+        </ng-container>
+
+       </div>
+     </div>
+  </div>
+
+</div>

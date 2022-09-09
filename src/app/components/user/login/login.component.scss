@@ -1,0 +1,16 @@
+.container{
+    margin-top: 30px;
+    padding: 30px;
+    height: 595px;
+    max-width: fit-content;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;  
+   
+    
+}
+.card{
+    font-weight: 600;
+    text-align: justify;
+    text-transform: uppercase;
+    background-color: rgba($color: rgb(255,193,7), $alpha: 1);
+}
