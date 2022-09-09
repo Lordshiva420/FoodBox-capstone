@@ -1,0 +1,145 @@
+
+<div class="container">
+    
+   <div class="row">
+
+    <div class="col-md-8">
+        <h3 class="title">Shipping Address</h3>
+        <form class="row g-3"  [formGroup]="myAddressForm" (ngSubmit)="formSubmit()">
+          
+            <div class="mb-3">
+              <label for="inputAddress" class="form-label" >Address 1</label>
+              <input type="text"  name="address1"class="form-control" id="inputAddress" formControlName="address1" placeholder="1234 Main St"required>
+            </div>
+            <div class="mb-3">
+              <label for="inputAddress2" class="form-label">Address 2</label>
+              <input type="text" name="city"class="form-control" id="inputAddress2" formControlName="address2" placeholder="Apartment, studio, or floor"required>
+            </div>
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">City</label>
+              <input type="text" name="city" class="form-control" id="inputCity" formControlName="City" required>
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label"required>State</label>
+              <input type="text" name="state" class="form-control" id="inputCity"formControlName="State"  required>
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip" class="form-label" required>Zip</label>
+              <input type="text" name="zip"  class="form-control" id="inputZip" formControlName="Zip" >
+            </div>
+            <h4>payment methods</h4>
+            <div class="col-12"class="d-inline-flex p-2">
+                
+                <div class="row"class="d-inline-flex p-2" >
+                    <div class="form-check">
+                        <input  class="form-check-input" type="radio" id="card"value="card"formControlName="Payment" >
+                        <label class="form-check-label" for="gridCheck">
+                          <img  style="width:120px ;"  src="assets\img\payment.jfif" class="card-img-top" alt="...">
+                        </label>
+                      </div> 
+
+                      <div class="form-check">
+                        <input  class="form-check-input" type="radio" value="Gpay" id="card" formControlName="Payment" >
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            <img  style="width:40px ;"  src="assets\img\googlepay.jfif" class="card-img-top" alt="...">
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" value="phonepay" id="card"formControlName="Payment"  >
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            <img  style="width:80px ;"  src="assets\img\phonepay.png" class="card-img-top" alt="...">
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" value="paytm" id="card" formControlName="Payment"  >
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            <img  style="width:60px ;"  src="assets\img\Paytm.jpg" class="card-img-top" alt="...">
+                        </label>
+                      </div>
+
+                </div>
+               
+            </div>
+
+                    
+            
+              
+                
+                  <button type="submit"  class="btn btn-primary d-grid gap-2 col-12" >
+                   paynow
+                  </button>
+                           
+          
+          </form>
+
+    </div>
+
+    <div class="col-md-4">
+      
+      <h4 style="text-align: center;">Order summary</h4>
+      
+          <div class="row card d-flex justify-content-between flex-wrap ">
+      
+                <table class="table card-body">
+
+                   
+
+                    <tbody>
+                        <ng-container *ngFor="let cartitem of cartItems index as i">
+                            <tr>
+                              <td>
+                                <strong> {{i+1}}</strong>
+                                 
+                              </td>
+                                <td>
+                                  <strong> {{cartitem.productName}}</strong>
+                                    <p class="card-text">price:<strong>{{cartitem.unitPrice|currency
+                                            :('INR')}}</strong></p>
+                                </td>
+
+                                <td>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                          <strong>Quantity:{{cartitem.quantity}}</strong>
+                                        </div>
+                                        
+                                          <strong>
+                                            subtotal:{{cartitem.unitPrice*cartitem.quantity|currency:('INR')}}
+                                          </strong> 
+                                    </div>
+                                </td>
+
+                            </tr>
+                          </ng-container>  
+                          
+
+                    </tbody>
+
+                    <tr>
+                      <td colspan="1"></td>
+                      <div class="total ">
+                          <p>Total Quantity:{{ totalquantity}}</p>
+                          <p>Total Price:{{totalprice|currency :('INR')}}</p>
+                          <p>Shippin:Free</p>
+                          <p>Taxe:{{taxes*0.01|percent}}</p>
+                          <p>Discoun:{{Discount*0.01|percent}}</p>
+                          <h3>GrandTotal:{{grandTotal|currency:('INR')}}</h3>
+                      </div>
+                  
+                </table>
+                         
+                    
+          </div>
+      </div>
+     
+   
+
+
+   </div>
+
+
+    
+</div>
+

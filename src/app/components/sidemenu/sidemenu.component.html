@@ -1,0 +1,18 @@
+
+<!-- side menu -->
+
+<div class="col-md sm" >
+
+  <div class="list-group ">
+  <h3 style="color: orange;">Categories</h3>
+    <a class=" list-group-item list-group-item-action" routerLinkActive="bg-warning text-white font-weight-bold" routerLink="/category/0"  >All</a>
+
+    <ng-container *ngFor="let category of categoryList">
+      <a class="list-group-item list-group-item-action" routerLinkActive="bg-warning text-white font-weight-bold"
+        routerLink="/category/{{category.cId}}">{{category.categoryName}}</a>
+    </ng-container>
+
+  </div>
+
+
+</div>

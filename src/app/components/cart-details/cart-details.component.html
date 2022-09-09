@@ -1,0 +1,107 @@
+<p>cart-details works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <app-sidemenu></app-sidemenu>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-12">
+                    <div *ngIf="cartItems.length>0">
+                        <table class="table table-bordered  table-hover">
+
+                            <thead class="bg-warning text-light">
+
+                                <tr>
+                                    <th width="10%">image</th>
+                                    <th width="20%">Description</th>
+                                    <th width="1%">Details</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+                                <ng-container *ngFor="let cartitem of cartItems">
+                                    <tr>
+
+                                        <td>
+                                             <img  src="assets\img\{{cartitem.imageUrl}}" class="card-img-top img-thumbnail"
+                                                alt="...">
+                                          
+                                        </td>
+
+                                        <td>
+                                            <h5 class="card-title">{{cartitem.productName}}</h5>
+                                            <hr>
+                                            <p class="card-text">{{cartitem.productDescription}}</p>
+                                            <hr>
+                                            <h6 class="card-text">price:<strong>{{cartitem.unitPrice|currency
+                                                    :('INR')}}</strong></h6>
+                                        </td>
+
+                                        <td>
+                                            <div class="row quant">
+                                                <div class="col-md-12 ">
+
+                                                    <span class=" text-danger"
+                                                            (click)="removeCartItem(cartitem)">
+                                                            <i class=" fas fa-xl fa-trash-alt "></i>
+                                                        </span>
+                                                    <h5>Quantity:</h5>
+                                                </div>
+                                                
+                                                <div class="col-md-4">
+                                                    <button class="btn btn-primary btn-sm float-right pointer"
+                                                        (click)="incrementQuantity(cartitem)">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <strong>{{cartitem.quantity}}</strong>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button class="btn btn-primary btn-sm float-left "
+                                                        (click)="decrementQuantity(cartitem)">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                                &nbsp;&nbsp;
+                                                <h5 class="card-title">
+                                                    subtotal:{{cartitem.unitPrice*cartitem.quantity|currency:('INR')}}
+                                                </h5>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </ng-container>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td class="font-weight-bold">
+                                        <p>Total quantity:&nbsp;&nbsp;{{ totalquantity}}</p>
+                                        <p>shipping:&nbsp; &nbsp;Free</p>
+                                        <p>Total price:&nbsp;&nbsp;{{totalprice|currency :('INR')}}</p>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+
+                    <div class="btn btn-warning mx-2" (click)="checkout()">
+                        checkout
+                    </div>
+                    <div class="btn btn-primary">
+                        <a routerLink="/userDashboard" style="color: white;">Back</a>
+                    </div>
+                    </div>
+                    <div *ngIf="cartItems.length==0" class="alert alert-warning" role="alert">
+                        your cart is empty
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

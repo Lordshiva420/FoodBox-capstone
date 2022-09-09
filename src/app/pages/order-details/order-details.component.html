@@ -1,0 +1,70 @@
+
+<div class="container">
+    <h2>Your Order Confirmed!</h2>
+    <h4>Hi {{loginService.getUser().username}}</h4>
+    <p>your order has been confirmed and will be shipping soon</p>
+    <hr>
+    <h2>Shipping Address</h2>
+    <div class="font-weight-bold ">
+        <p>{{address1}},{{address2}}</p>
+        <p>{{City}},{{Zip}}</p>
+        <p>{{State}}</p>
+    </div>
+    <hr>
+
+    <table class="table table-bordered table-hover">
+        
+
+        <tbody>
+            <ng-container *ngFor="let cartitem of cartItems">
+                <tr>
+                    <td>
+                        <div class="thumbnail">
+                            <img src="assets\img\{{cartitem.imageUrl}}" class="card-img-top img-thumbnail" alt="...">
+                        </div>
+                    </td>
+
+                    <td>
+                        <strong> {{cartitem.productName}}</strong>
+                        <p class="card-text">price:<strong>{{cartitem.unitPrice|currency
+                                :('INR')}}</strong></p>
+                    </td>
+
+                    <td>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <strong>Quantity:{{cartitem.quantity}}</strong>
+                            </div>
+                            <strong>
+                                subtotal:{{cartitem.unitPrice*cartitem.quantity|currency:('INR')}}
+                            </strong>
+                        </div>
+                    </td>
+                </tr>
+            </ng-container>
+    
+        </tbody>    
+    </table>
+<hr>
+
+<div class="font-weight-bold ">
+    <p>Total Quantity:{{ totalquantity}}</p>
+    <p>Total Price:{{totalprice|currency :('INR')}}</p>
+    <p>Shippin:Free</p>
+    <p>Payment Mode:{{Payment}}</p>
+    <p>Taxe:{{taxes*0.01|percent}}</p>
+    <p>Discoun:{{Discount*0.01|percent}}</p>
+    <h3>GrandTotal:{{grandTotal|currency:('INR')}}</h3>
+</div>
+<hr>
+<p>we'll send you shipping confirmation when your item(s) are on the way, We appriciate your business, and hope you enjoy your purchase.</p>
+<p>
+    Thank you!
+</p>
+<p>Food Box</p>
+
+<div class="btn btn-primary">
+    <a routerLink="/userDashboard" style="color: white;" (click)="clearCart()">continue shopping</a>
+</div>
+
+</div>
